@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Product Gallery</title>
+  <style>
+    .product-thumbnail {
+      cursor: pointer;
+    }
+    .thumbnail-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .thumbnail {
+      width: 30%; /* Adjust the width as needed */
+      margin-bottom: 10px;
+    }
+    .product-image {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-5">
+  <div class="row">
+    <!-- Thumbnails for 10 products -->
+    <div class="col-md-4">
+      <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail" onclick="openProduct('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg', 'Product 1', 'Product 1 Description')">
+      <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail" alt="Product 2" class="img-thumbnail product-thumbnail" onclick="openProduct('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail', 'Product 2', 'Product 2 Description')">
+<img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail" alt="Product 2" class="img-thumbnail product-thumbnail" onclick="openProduct('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail', 'Product 2', 'Product 2 Description')">
+<img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail" alt="Product 2" class="img-thumbnail product-thumbnail" onclick="openProduct('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail', 'Product 2', 'Product 2 Description')">
+<img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail" alt="Product 2" class="img-thumbnail product-thumbnail" onclick="openProduct('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail', 'Product 2', 'Product 2 Description')">
+<img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail" alt="Product 2" class="img-thumbnail product-thumbnail" onclick="openProduct('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/711ZldF8GQL._SY575_.jpg" alt="Product 1" class="img-thumbnail product-thumbnail', 'Product 2', 'Product 2 Description')">
+      <!-- Add more thumbnails as needed -->
+    </div>
+
+    <!-- Product Details -->
+    <div class="col-md-8">
+      <div id="productDetails">
+        <img src="" alt="Product" class="img-fluid product-image" id="zoomedProductImage">
+        <h2 id="productName">Product Name</h2>
+        <p id="productDescription">Product Description</p>
+        <!-- Add more product details as needed -->
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Custom JavaScript for image zoom and product details -->
+<script>
+  $(document).ready(function () {
+    // Click on thumbnail to load detailed image and product details
+    $('.product-thumbnail').click(function () {
+      var imagePath = $(this).data('image');
+      var productName = $(this).data('name');
+      var productDescription = $(this).data('description');
+      
+      $('#zoomedProductImage').attr('src', imagePath);
+      $('#productName').text(productName);
+      $('#productDescription').text(productDescription);
+    });
+
+    // Image zoom functionality
+    $('#zoomedProductImage').on('mousemove', function (e) {
+      var percentageX = (e.pageX - $(this).offset().left) / $(this).width() * 100;
+      var percentageY = (e.pageY - $(this).offset().top) / $(this).height() * 100;
+      $(this).css('transform-origin', percentageX + '% ' + percentageY + '%');
+    });
+  });
+
+  // Open product details in a new page
+  function openProduct(imagePath, productName, productDescription) {
+    var productPageURL = 'product-details.html' +
+      '?image=' + encodeURIComponent(imagePath) +
+      '&name=' + encodeURIComponent(productName) +
+      '&description=' + encodeURIComponent(productDescription);
+    window.open(productPageURL, '_blank');
+  }
+</script>
+
+</body>
+</html>
