@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Website</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        .thumbnail-gallery {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .thumbnail-item {
+            margin-bottom: 10px;
+            cursor: pointer;
+            max-width: 100%;
+            height: auto;
+            width: 50px;
+            border: 1px solid #ddd;
+            padding: 5px;
+            overflow: hidden;
+        }
+
+        .thumbnail-item img {
+            max-width: 100%;
+            height: auto;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .thumbnail-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .product-details {
+            display: flex;
+        }
+
+        .selected-image-container {
+            flex: 1;
+            background-color: #f2f2f2;
+            padding: 15px;
+            overflow: hidden;
+        }
+
+        .selected-image {
+            max-width: 100%;
+            height: 350px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .selected-image:hover {
+            transform: scale(1.2);
+        }
+
+        .product-description {
+            flex: 1;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-description h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .product-description p {
+            margin-bottom: 5px;
+        }
+
+        .important-text {
+            font-weight: bold;
+            color: #ff5733; /* Orange color for emphasis */
+        }
+
+        .least-important-text {
+            font-style: italic;
+            text-decoration: underline;
+            color: #666; /* Dark grey color for least important factors */
+        }
+
+        .most-important-text {
+            font-weight: bold;
+            text-decoration: underline;
+            color: #4caf50; /* Green color for most important factors */
+        }
+    </style>
+
+</head>
+
+<body onload="showImage('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81PXtEXGcfL._SY741_.jpg')">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Shopping Website</a>
+    </nav>
+
+    <!-- Product Details -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Thumbnail Gallery -->
+            <div class="col-md-3">
+                <div class="thumbnail-gallery">
+                    <!-- Add your product thumbnail images dynamically here -->
+                    <div class="thumbnail-item" onmousemove="zoomImage(event, this)">
+                        <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81PXtEXGcfL._SY741_.jpg" class="thumbnail-image" onclick="showImage('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/81PXtEXGcfL._SY741_.jpg')" alt="Thumbnail 1">
+                    </div>
+                    <div class="thumbnail-item" onmousemove="zoomImage(event, this)">
+                        <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/917jqd18HYL._SY741_.jpg" class="thumbnail-image" onclick="showImage('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/917jqd18HYL._SY741_.jpg')" alt="Thumbnail 2">
+                    </div>
+                    <div class="thumbnail-item" onmousemove="zoomImage(event, this)">
+                        <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/911rCDDG5cL._SX679_.jpg" class="thumbnail-image" onclick="showImage('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/911rCDDG5cL._SX679_.jpg')" alt="Thumbnail 3">
+                    </div>
+                    <div class="thumbnail-item" onmousemove="zoomImage(event, this)">
+                        <img src="https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/A1dgDKQQ7iL._SX679_.jpg" class="thumbnail-image" onclick="showImage('https://m.media-amazon.com/images/W/MEDIAX_792452-T1/images/I/A1dgDKQQ7iL._SX679_.jpg')" alt="Thumbnail 4">
+                    </div>
+                    <!-- Add more thumbnails as needed -->
+                </div>
+            </div>
+
+            <!-- Selected Image and Product Description -->
+            <div class="col-md-9">
+                <div class="product-details">
+                    <div class="selected-image-container" id="selectedImageContainer" onmousemove="zoomImage(event, this)">
+                        <!-- Selected image will be displayed here -->
+                    </div>
+                    <div class="product-description">
+                        <!-- Add your product descriptions here -->
+                        <h3 class="most-important-text">Monjolika Fashion Women's Banarasi Silk Blend Woven Work Tussles Saree With Unstitched Blouse Piece (Monjolika 45560_color)</h3>
+                        <p class="least-important-text">349 ratings | 9 answered questions</p>
+                        <p class="most-important-text">4.0</p>
+                        <p class="most-important-text">2,995</p>
+                        <p class="least-important-text">-36%</p>
+                        <p class="least-important-text"><span class="most-important-text">M.R.p.: </span><span class="important-text">+699</span></p>
+                        <p class="least-important-text">Inclusive of all taxes</p>
+                        <p class="least-important-text">EMI starts at <span class="most-important-text">₹145</span>. No Cost EMI available EMI options v</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        function showImage(imageSrc) {
+            // Display the selected image
+            const selectedImageContainer = document.getElementById('selectedImageContainer');
+            selectedImageContainer.innerHTML = `<img src="${imageSrc}" class="selected-image" alt="Selected Image">`;
+        }
+
+        function zoomImage(event, element) {
+            const selectedImage = document.querySelector('.selected-image');
+            const rect = element.getBoundingClientRect();
+            const x = (event.clientX - rect.left) / element.offsetWidth * 100;
+            const y = (event.clientY - rect.top) / element.offsetHeight * 100;
+
+            selectedImage.style.transformOrigin = `${x}% ${y}%`;
+            selectedImage.style.transform = 'scale(3)';
+        }
+    </script>
+
+</body>
+
+</html>
